@@ -14,7 +14,12 @@ router.post('/members', async (req, res)=>{
     }
 })
 
+router.get('/members/login', (req,res)=>{
+    res.render('memberLogin')
+})
+
 router.post('/members/login', async(req, res)=>{
+    
     try{
         const member = await Member.findByCredentials(req.body.email, req.body.password)
         res.send(member)
@@ -24,6 +29,7 @@ router.post('/members/login', async(req, res)=>{
 })
 
 router.get('/members', async (req,res)=>{
+    
     try{
         const members = await Member.find({})
         res.send(members)

@@ -13,6 +13,17 @@ html,body{
   background: #f2f2f2;
   /* background: linear-gradient(-135deg, #c850c0, #4158d0); */
 }
+footer{
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  color:#f2f2f2;
+  /* border-radius: 15px; */
+  padding-top: 10px;
+  text-align:center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
 ::selection{
   background: #4158d0;
   color: #fff;

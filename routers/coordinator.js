@@ -49,7 +49,7 @@ router.get('/coordinators/:id', async (req,res)=>{
 })
 
 router.get('/coordinator', async (req,res)=>{
-    res.render("login", {whomToLogin:"Coordinator"});
+    res.render("login",{whomToLogin:"Coordinator"});
 })
 
 module.exports = router
