@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Member Signup</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="title">Member Signup</div>
+    <form action="#">
+      <div class="field">
+        <input type="email" required>
+        <label>Email Address</label>
+      </div>
+      <div class="field">
+        <input type="password" required>
+        <label>Password</label>
+      </div>
+      <div class="field">
+        <input type="password" required>
+        <label>Confirm Password</label>
+      </div>
+      <div class="field">
+        <input type="submit" value="Signup">
+      </div>
+      <div class="signup-link">Already a member? <a href="/member">Login here</a></div>
+    </form>
+  </div>
+</body>
+<%- include("footer") -%>
+</html>

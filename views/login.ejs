@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <title><%=whomToLogin%> Login</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="title"><%=whomToLogin%> Login</div>
+    <form action="/<%= whomToLogin%>" method="POST">
+      <div class="field">
+        <input type="email" required name="email">
+        <label>Email Address</label>
+        <!-- <required name="email"> -->
+
+      </div>
+      <div class="field">
+        <input type="password" required name="password">
+        <label>Password</label>
+        <!-- <required name="password"> -->
+      </div>
+      <div class="content">
+        <div class="checkbox">
+          <input type="checkbox" id="remember-me" name="checkBox">
+          <label for="remember-me">Remember me</label>
+        </div>
+        <div class="pass-link"><a href="/sendOtp">Forgot password?</a></div>
+      </div>
+      <div class="field">
+        <input type="submit" value="Login">
+      </div>
+      <% if( whomToLogin  === "Member"){ %>
+        <div class="signup-link">
+          Not a member? <a href="/signup">Signup now</a>
+        </div>
+      <% } %>
+    </form>
+  </div>
+</body>
+<%- include("footer") -%>
+</html>
