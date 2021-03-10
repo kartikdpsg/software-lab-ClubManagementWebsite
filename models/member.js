@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
+const jwt= require('jsonwebtoken')
 
 const memberSchema = new mongoose.Schema({
     name : {
@@ -42,8 +43,23 @@ const memberSchema = new mongoose.Schema({
         club: {
             type: String
         }
+    }],
+    tokens: [{
+        token:{
+            type:String,
+            required:true
+        }
     }]
 })
+
+memberSchema.methods.generateAuthToken = async function(){
+    const member = this
+    const token = jwt.sign({_id: member._id.toString()}, 'clubmanagement')
+
+    member.tokens =  member.tokens.concat({token})
+    await member.save()
+    return token
+}
 
 memberSchema.statics.findByCredentials = async (email, password)=>{
     const member = await Member.findOne({email})
@@ -60,6 +76,17 @@ memberSchema.statics.findByCredentials = async (email, password)=>{
 
     return member
 }
+
+memberSchema.statics.findByEmail = async (email)=>{
+    const member = await Member.findOne({email})
+
+    if(!member){
+        throw new Error('Unable to find!')
+    }
+
+    return member
+}
+
 
 
 memberSchema.pre('save', async function(next){

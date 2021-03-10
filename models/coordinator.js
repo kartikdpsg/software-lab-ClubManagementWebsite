@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
+const jwt= require('jsonwebtoken')
 
 const coordinatorSchema = new mongoose.Schema({
     name : {
@@ -40,8 +41,23 @@ const coordinatorSchema = new mongoose.Schema({
     },
     leader_of_club: {
         type:String
-    }
+    },
+    tokens: [{
+        token:{
+            type:String,
+            required:true
+        }
+    }]
 })
+
+coordinatorSchema.methods.generateAuthToken = async function(){
+    const coordinator = this
+    const token = jwt.sign({_id: coordinator._id.toString()}, 'clubmanagement')
+
+    coordinator.tokens =  coordinator.tokens.concat({token})
+    await coordinator.save()
+    return token
+}
 
 coordinatorSchema.statics.findByCredentials = async (email, password)=>{
     const coordinator = await CoOrdinator.findOne({email})
