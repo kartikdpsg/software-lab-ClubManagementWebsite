@@ -45,6 +45,16 @@ adminSchema.methods.generateAuthToken = async function(){
     return token
 }
 
+adminSchema.statics.findByEmail = async (email)=>{
+    const admin = await Admin.findOne({email})
+
+    if(!admin){
+        throw new Error('Unable to find!')
+    }
+
+    return admin
+}
+
 adminSchema.statics.findByCredentials = async (email, password)=>{
     const admin = await Admin.findOne({email})
 

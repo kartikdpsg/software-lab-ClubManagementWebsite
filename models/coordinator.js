@@ -39,9 +39,14 @@ const coordinatorSchema = new mongoose.Schema({
         type:String,
         required : true
     },
-    leader_of_club: {
-        type:String
-    },
+    // leader_of_club: {
+    //     type:String
+    // },
+    leader_clubs: [{
+        club: {
+            type: String
+        }
+    }],
     tokens: [{
         token:{
             type:String,
