@@ -1,4 +1,4 @@
-<%- include("header",{header:header,whomToLogin:whomToLogin,name:name,email:email}) -%>
+<%- include("header",{header:header,whomToLogin:whomToLogin,name:name,email:email,rollNo:rollNo,course:course}) -%>
 
     <div class="wrapper">
         <div class="title">Your Profile</div>
@@ -12,18 +12,18 @@
             <div class="field">
                 <input type="email" required name="email" readonly>
                 <label>
-                    <%= emailAddress %>
+                    <%= email %>
                 </label>
             </div>
-            <div class="field">
-                <input type="text" required name="rollNo" readonly>
-                <label><%=rollNo%></label>
-            </div>
             <% if(whomToLogin!=="Admin"){ %>
-            <div class="field">
-                <input type="text" required name="course" readonly>
-                <label><%=course%></label>
-            </div>
+                <div class="field">
+                    <input type="text" required name="rollNo" readonly>
+                    <label><%=rollNo%></label>
+                </div>
+                <div class="field">
+                    <input type="text" required name="course" readonly>
+                    <label><%=course%></label>
+                </div>
             <% } %>
         </form>
     </div>

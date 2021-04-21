@@ -12,6 +12,10 @@
         <input type="text" required name="makeAnnouncement">
         <label>To Announce</label>
     </div>
+    <input type="hidden" value="<%=clubs[0].name%>" name="clubNamePost">
+    <input type="hidden" value="<%=whomToLogin%>" name="whomToLoginPost">
+    <input type="hidden" value="<%=email%>" name="emailPost">
+    <input type="hidden" value="<%=name%>" name="NamePost">
     <br>
     <div class="upload-btn-wrapper">
       <button type="button" class="fileInput">Upload a document</button>
@@ -43,7 +47,7 @@
       <% } %>
     </div>
     <div class="card-footer text-muted">
-      <%= posts[i].created.toDateString() %>
+      <%= posts[i].created %>
     </div>
     </div>
     <% } %>

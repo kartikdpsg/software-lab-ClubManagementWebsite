@@ -166,3 +166,150 @@ form .pass-link a:hover,
 form .signup-link a:hover{
   text-decoration: underline;
 }
+
+/*From line 171 to 314 for chat Box (Added on March 30, 2021 ) */
+
+.container{
+  max-width: 955px;
+  border: 2px solid rgb(206, 39, 239);
+  border-radius: 13px;
+  margin: auto;
+  height: 50vh;
+  padding: 4px;
+  overflow-y: auto;
+  margin-bottom: 23px;
+}
+
+.message{
+  
+  width: 70%;
+  padding: 2px;
+  margin: 2px 4px;
+  border: 2px solid #0703033b;
+  border-radius: 10px; 
+}
+.left{
+  background-color:#d274e0;
+  float: left;
+  clear:both;
+}
+
+.right{
+  background-color: #fa4299;
+  float: right;
+  clear:both;
+}
+.middle{
+  background-color: rgb(241, 232, 98);
+  float: left;
+  clear: both;
+}
+
+
+#send-container{
+  display:block;
+  margin: auto;
+  text-align: center;
+  max-width: 1085px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#messageInp{
+  width: 80%;
+  border: 2px solid #ce27ef;
+  border-radius: 15px;
+  height: 40px;
+  font-size: 18px;
+  padding: 10px;
+}
+.chatsendbtn{
+  height: 25px;
+  width: 20%;
+  margin: 10px;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(-135deg, rgb(200, 80, 192), rgb(65, 88, 208));
+}
+#click{
+  display: none;
+}
+.chatbtn{
+  position: fixed;
+    right: 30px;
+    bottom: 40px;
+    height: 55px;
+    width: 55px;
+    background: -webkit-linear-gradient(-135deg, rgb(200, 80, 192), rgb(65, 88, 208));
+    text-align: center;
+    line-height: 55px;
+    border-radius: 50px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .chatbtn i{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+  }
+  .chatbtn i.fas{
+    opacity: 0;
+    pointer-events: none;
+  }
+  #click:checked ~ label i.fas{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  #click:checked ~ label i.fab{
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  .chatwrapper{
+    /* position: absolute; */
+    position: fixed;
+    right: 90px;
+    bottom: 0px;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+  }
+  #click:checked ~ .chatwrapper{
+    opacity: 1;
+    bottom: 85px;
+    pointer-events: auto;
+  }
+  .chatwrapper .head-text{
+    line-height: 60px;
+    color: #fff;
+    border-radius: 15px 15px 0 0;
+    padding: 0 20px;
+    font-weight: 500;
+    font-size: 20px;
+    background: -webkit-linear-gradient(-135deg, rgb(200, 80, 192), rgb(65, 88, 208));
+  }
+  .chatwrapper .chat-box{
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .chat-box form{
+    padding: 10px 15px;
+    margin: 20px 0;
+    border-radius: 25px;
+   
+  }
+  .chat-box form .field{
+      height: 25px;
+      width: 20%;
+      margin: 10px;
+      border-radius: 5px;
+  }

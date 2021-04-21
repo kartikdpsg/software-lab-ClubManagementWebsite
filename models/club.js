@@ -48,6 +48,14 @@ const clubSchema = new mongoose.Schema({
             type:Date
         }
         // timestamps:true
+    }],
+    chat:[{
+        nameofuser:{
+            type:String
+        },
+        messages:{
+            type:String
+        }
     }]
 })
 
